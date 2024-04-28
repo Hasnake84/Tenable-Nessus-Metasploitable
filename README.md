@@ -37,25 +37,24 @@ Prioritize vulnerabilities based on severity and exploitability.
  <a href="https://imgur.com/YrH6fae"><img src="https://i.imgur.com//YrH6fae.png" title="source: imgur.com" /></a> 
  <a href="https://imgur.com/HP2yjta"><img src="https://i.imgur.com//HP2yjta.png" title="source: imgur.com" /></a> 
 
-From the generated report, which has 30 Critical and 94 High and 135 Medium vulnerabilities, have select a few from the criticals and outlined a remediation action plan.
+From the generated report, which has 32 Critical and 95 High and 135 Medium vulnerabilities, have select a few from the criticals and outlined a remediation action plan.
+
+# Remediation action plan and recommendations
+- Apache log4j 1.x: Update to the latest log4j version (log4j 2.x) that addresses these vulnerabilities.
+- Bash Remote Code Excution (Shellshock): Host is running a version of Bash that is vulnerable to command injection via enviroment variable manipulation, update Bash to remediate.
+- Bash shell backdoor: A shell is listening on the remote port without any authentication being required. An attacker may use it by connecting to the remote port and sending commands 
+  directly, Consider resetting passwords and rebuilding affected systems if necessary.
+- Weak SSH keys: Revoke weak keys and regenerate strong unique keys for SSH access.
+- VNC server "password" password: Change the VNC server password to a strong, unique passphrase.
+- Apache Tomcat AJP: Update Tomcat to a version that addresses the Ghostcat vulnerability, also disable the AJP connector if not in use.
+- SSLv2/v3: Disable SSLv2 and SSLv3 protocols on host and implement TLS v1.2 or higher for secure connections.
+- OpenSSH/OpenSSL RNG weakness: Update the OpenSSH and OpenSSL packages to address the random number generator weakness. 
+- Unsupported OS: Upgrade the unsupported operating systems to a supported version to receive critical security patches and fixes. 
+- NFS share disclosure: Review and adjust NFS export permissions to restrict access to sensitive information. Only export necessary data and limit access to authorized users or systems.
+
+This project provides a structured approach to identify and address security weaknesses on a vulnerable machine. By successfully completing this project, i have gained a practical experience with Tenable Nessus, vulnerability scanning methodologies, and basic vulnerability remediation techniques.
+ <a href="https://imgur.com/lR9xxw7"><img src="https://i.imgur.com//lR9xxw7.png" title="source: imgur.com" /></a> 
 
 
-
-
-Critical:
-
-Apache log4j 1.x: Update to the latest log4j version (log4j 2.x) that addresses these vulnerabilities. Refer to official Apache Software Foundation (https://logging.apache.org/log4j/) documentation for specific instructions.
-Bash shell backdoor: Investigate the identified backdoor immediately. Isolate and remove compromised systems. Consider resetting passwords and rebuilding affected systems if necessary.
-Weak SSH keys: Revoke weak keys and regenerate strong, unique keys for SSH access. Enforce strong key ciphers and authentication methods.
-VNC server "password" password: Change the VNC server password to a strong, unique passphrase. Restrict access to the VNC server only to authorized users.
-High:
-
-Apache Tomcat AJP: Update Tomcat to a version that addresses the Ghostcat vulnerability. Alternatively, disable the AJP connector if not in use.
-SSLv2/v3: Disable SSLv2 and SSLv3 protocols on your servers. Enforce the use of TLSv1.2 or higher for secure connections.
-OpenSSH/OpenSSL RNG weakness: Update the OpenSSH and OpenSSL packages to address the random number generator weakness. Refer to Debian package repositories for the latest updates.
-Unsupported OS: Upgrade unsupported operating systems to a supported version to receive critical security patches and fixes. If upgrading is not feasible, consider isolating unsupported systems from the network.
-NFS share disclosure: Review and adjust NFS export permissions to restrict access to sensitive information. Only export necessary data and limit access to authorized users or systems.
-
-This project provides a structured approach to identify and address security weaknesses on a vulnerable machine. By successfully completing this project, you will gain practical experience with Tenable Nessus, vulnerability scanning methodologies, and basic vulnerability remediation techniques.
 
 
